@@ -1,0 +1,7 @@
+<h1>Weather Forecast</h1>
+<% @destinations.each do |destination| %>
+  <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
+  <h3><%= destination.country%> - <%= destination.zip %></h3>
+  <h4><%= destination.date %></h4>
+  <h4><%= destination.destination_hi%> / <%= destination.destination_lo %></h4>
+<% end %>

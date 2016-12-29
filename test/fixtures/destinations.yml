@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  date: MyString
+  weather: MyString
+  map_url: MyString
+  user_id: 1
+
+two:
+  location: MyString
+  date: MyString
+  weather: MyString
+  map_url: MyString
+  user_id: 1
