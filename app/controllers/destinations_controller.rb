@@ -29,7 +29,7 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/almanac/q/CA/San_Francisco.json").body
-    @date = params["date"]
+    @date = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/hourly/q/CA/San_Francisco.json").body
     render "show.html.erb"
   end
 

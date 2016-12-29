@@ -1,2 +1,8 @@
 <h1><%= @destination["almanac"]["airport_code"] %></h1>
-<h3>Normal high for <%= @date %> <%= @destination["almanac"]["temp_high"]["normal"]["F"] %>&#8457 / <%= @destination["almanac"]["temp_high"]["normal"]["C"] %>&#8451</h3>
+<h2><%= @date["hourly_forecast"][0]["FCTTIME"]["weekday_name"] %> Morning, 9AM:</h2>
+<h3>Normal high: <%= @destination["almanac"]["temp_high"]["normal"]["F"] %>&#8457 / <%= @destination["almanac"]["temp_high"]["normal"]["C"] %>&#8451</h3>
+<h2><%= @date["hourly_forecast"][0]["FCTTIME"]["weekday_name_night"] %>, 9PM:</h2>
+<h3>Normal low: <%= @destination["almanac"]["temp_low"]["normal"]["F"] %>&#8457 / <%= @destination["almanac"]["temp_low"]["normal"]["C"] %>&#8451</h3>
+<h3>Conditions are historically <%= @date["hourly_forecast"][0]["condition"].downcase %></h3>
+<hr>
+<h1>Suitcase Recommends:</h1>
