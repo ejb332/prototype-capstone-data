@@ -1,14 +1,22 @@
-<h1>Weather Forecast</h1>
-<% @destinations.each do |destination| %>
-  <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
-  <h3><%= destination.country%> - <%= destination.zip %></h3>
-  <h4><%= destination.date %></h4>
-  <h4><%= destination.destination_hi%> / <%= destination.destination_lo %></h4>
-  <form action="/destinations/<%= destination.id %>/edit" method="get">
-    <button>Edit destination</button>
-  </form>
-<% end %>
+<div class="dest-header">
+  <h1>Weather Forecast</h1>
+</div>
+<div class="destination">
+  <% @destinations.each do |destination| %>
+    <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
+    <h3><%= destination.country%> - <%= destination.zip %></h3>
+    <h4><%= destination.date %></h4>
+    <h4><%= destination.destination_hi%> / <%= destination.destination_lo %></h4>
+    <form action="/destinations/<%= destination.id %>/edit" method="get">
+      <button class="btn btn-info">Edit destination</button>
+    </form>
+    <p></p>
+    <div class="btn btn-danger">
+      <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete %>
+    </div>
+  <% end %>
+</div>
 <hr>
 <form action="/destinations/new" method="get">
-  <button>Add destination</button>
+  <button class="btn btn-success">Add destination</button>
 </form>

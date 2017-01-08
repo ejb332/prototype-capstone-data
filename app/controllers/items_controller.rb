@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       user_id: current_user
     )
     if @item.save
-      flash[:success] = "Item added to inventory"
+      flash[:success] = "Item added to closet"
       redirect_to "/items/#{@item.id}"
     else
       flash[:warning] = "Error! Item not saved - please try again"
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
     item = Item.find_by(id: params[:id])
     item.name = params[:name]
     if item.save
-      flash[:success] = "Item updated and saved to inventory"
+      flash[:success] = "Item updated and saved to closet"
       redirect_to "/items"
     else
       flash[:warning] = "Error! Item not saved - try again"
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find_by(id: params[:id])
     item.destroy
-    flash[:success] = "Item removed from inventory"
+    flash[:success] = "Item removed from closet"
     redirect_to "/items"
   end
 end

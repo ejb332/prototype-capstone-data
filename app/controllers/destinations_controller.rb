@@ -23,6 +23,7 @@ class DestinationsController < ApplicationController
       flash[:success] = "Destination added to Itinerary"
       redirect_to "/destinations"
     else
+      flash[:warning] = "Error! Destination not saved"
       render "new.html.erb"
     end
   end
@@ -30,7 +31,7 @@ class DestinationsController < ApplicationController
   def show
     @place = Destination.find_by(id: params[:id])
     @destination = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/almanac/q/#{@place.state}/#{@place.city}.json").body
-    @date = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/hourly/q/CA/San_Francisco.json").body
+    @date = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/hourly/q/#{@place.state}/#{@place.city}.json").body
     render "show.html.erb"
   end
 
@@ -51,11 +52,11 @@ class DestinationsController < ApplicationController
     else
       render "edit.html.erb"
     end
-
   end
 
   def destroy
-    @destination = Destination.find_by(id: params[:id])
+    destination = Destination.find_by(id: params[:id])
+    destination.destroy
     flash[:success] = "Destination Removed From Itinerary"
     redirect_to "/destinations"
   end

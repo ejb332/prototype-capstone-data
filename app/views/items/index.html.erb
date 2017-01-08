@@ -1,4 +1,9 @@
-<% @items.each do |item| %>
-  <h1><%= item.name %></h1>
-  <hr>
-<% end %>
+<div>
+  <% @items.each do |item| %>
+    <h1><%= item.name %></h1>
+    <hr>
+  <% end %>
+</div>
+<form action="/items/new">
+  <button class="btn btn-success">Add new item</button>
+</form>
