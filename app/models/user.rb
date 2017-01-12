@@ -5,7 +5,10 @@ class User < ApplicationRecord
 
   def select_wardrobe(input_temp)
     if input_temp >= 75
-      return items
+      sandals = items.sample
+      tshirt = items.sample
+      shorts = items.sample
+      return [sandals, tshirt, shorts]
     elsif input_temp < 75 && input_temp >= 55
       return items
     elsif input_temp < 55 && input_temp >= 40
