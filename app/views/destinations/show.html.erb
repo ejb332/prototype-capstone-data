@@ -8,4 +8,8 @@
 #{ENV['GMAPS_API_KEY']}
 ">
 <hr>
-<h1>Suitcase Recommends:</h1>
+<h1>Suitcase Recommends:
+  <% @current_user.select_wardrobe(76).each do |item| %>
+    <p><%= item.name %></p>
+  <% end %>
+</h1>
