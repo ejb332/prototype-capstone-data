@@ -4,7 +4,7 @@
 <h2><%= @date["hourly_forecast"][0]["FCTTIME"]["weekday_name_night"] %>, 9PM:</h2>
 <h3>Normal low: <%= @destination["almanac"]["temp_low"]["normal"]["F"] %>&#8457 / <%= @destination["almanac"]["temp_low"]["normal"]["C"] %>&#8451</h3>
 <h3>On this date, conditions have historically been <%= @date["hourly_forecast"][0]["condition"].downcase %></h3>
-<img src="https://maps.googleapis.com/maps/api/staticmap?center=Chicago,IL&zoom=12&size=400x400&key=#{ENV['GMAPS_API_KEY']}">
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @place.city %>,<%= @place.state %>&zoom=12&size=400x400&key=#{ENV['GMAPS_API_KEY']}">
 <hr>
 <h1>Suitcase Recommends:
   <% @current_user.select_wardrobe(76).each do |item| %>
