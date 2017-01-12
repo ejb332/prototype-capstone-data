@@ -13,11 +13,17 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(
       name: params["name"],
-      user_id: current_user
+      user_id: current_user.id
     )
     if @item.save
+      params[:category_ids].each do |category_id|
+        ItemCategory.create(
+          item_id: @item.id,
+          category_id: category_id
+        )
+      end
       flash[:success] = "Item added to closet"
-      redirect_to "/items/#{@item.id}"
+      redirect_to "/items"
     else
       flash[:warning] = "Error! Item not saved - please try again"
       render "new.html.erb"

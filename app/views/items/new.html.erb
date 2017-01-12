@@ -5,6 +5,17 @@
     <%= text_field_tag :name, "", class: 'form-control' %>
   </div>
   <div>
+    <%= label_tag :categories %>
+    <% Category.all.each do |category| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="category_ids[]" value="<%= category.id %>">
+          <%= category.name %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+  <div>
     <%= submit_tag "Add Clothing Item", class: 'btn btn-success' %>
   </div>
 <% end %>
