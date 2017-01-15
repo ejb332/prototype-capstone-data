@@ -21,7 +21,7 @@
     <h1>Suitcase Recommends</h1>
   </div>
   <div>
-    <% @current_user.select_wardrobe(@weather_hi.to_i).each do |item| %>
+    <% current_user.select_wardrobe(@weather_hi.to_i).each do |item| %>
       <h4><%= item.name %></h4>
     <% end %>
   </div>

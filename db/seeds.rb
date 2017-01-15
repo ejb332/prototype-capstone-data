@@ -11,13 +11,13 @@ names = ["test1", "test2", "test3", "Eric"]
 #   user.save
 # end
 
-120.times do
-  item = Item.new(
-    name: Faker::Commerce.product_name,
-    user_id: rand(4)
-  )
-  item.save
-end
+# 120.times do
+#   item = Item.new(
+#     name: Faker::Commerce.product_name,
+#     user_id: rand(4)
+#   )
+#   item.save
+# end
 
 # 12.times do
 #   destination = Destination.new(

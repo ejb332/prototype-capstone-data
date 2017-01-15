@@ -5,6 +5,9 @@
   <% @destinations.each do |destination| %>
     <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
     <h3><%= destination.country%> - <%= destination.zip %></h3>
+    <div class="flag">
+    <img src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
+    </div>
     <h4><%= destination.date_pretty_start %></h4>
     <h4>-</h4>
     <h4><%= destination.date_pretty_end %></h4>

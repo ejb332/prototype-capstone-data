@@ -39,4 +39,8 @@ class Destination < ApplicationRecord
   def date_url_end
     end_date.strftime("%m%e")
   end
+
+  # def country_flag
+  #   Unirest.get("http://www.geognos.com/api/en/countries/flag/#{country}.png").body
+  # end
 end

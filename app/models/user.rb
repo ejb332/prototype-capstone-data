@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   def select_wardrobe(input_temp)
     if input_temp >= 75
-      sandals = items.sample
-      tshirt = items.sample
+      sandals = Category.find_by(name: "Shoes").items.sample
+      tshirt = Category.find_by(name: "T-shirts").items.sample
       shorts = items.sample
       return [sandals, tshirt, shorts]
     elsif input_temp < 75 && input_temp >= 55
@@ -22,7 +22,7 @@ class User < ApplicationRecord
       coat = items.sample
       return [shoes, tshirt, shirt, pants, coat]
     else
-      return items
+      return []
     end
   end
 
