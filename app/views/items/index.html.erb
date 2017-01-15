@@ -1,8 +1,9 @@
 <div>
   <% @items.each do |item| %>
     <h1><%= item.name %></h1>
-    <button class="btn btn-danger align-right">Remove</button>
-    <hr>
+    <div>
+      <button class="btn btn-danger no-link-style"><%= link_to "Delete", "/items/#{item.id}", method: :delete %></button>
+    </div>
   <% end %>
 </div>
 <form action="/items/new">

@@ -7,22 +7,28 @@ class User < ApplicationRecord
     if input_temp >= 75
       sandals = Category.find_by(name: "Shoes").items.sample
       tshirt = Category.find_by(name: "T-shirts").items.sample
-      shorts = items.sample
+      shorts = Category.find_by(name: "Shorts").items.sample
       return [sandals, tshirt, shorts]
     elsif input_temp < 75 && input_temp >= 55
-      shoes = items.sample
-      tshirt = items.sample
-      pants = items.sample
-      return [shoes, tshirt, pants]
+      shoes = Category.find_by(name: "Shoes").items.sample
+      tshirt = Category.find_by(name: "T-shirts").items.sample
+      pants = Category.find_by(name: "Pants").items.sample
+      jacket = Category.find_by(name: "Outerwear-light").items.sample
+      return [shoes, tshirt, pants, jacket]
     elsif input_temp < 55 && input_temp >= 40
-      shoes = items.sample
-      tshirt = items.sample
-      shirt = items.sample
-      pants = items.sample
-      coat = items.sample
+      shoes = Category.find_by(name: "Shoes").items.sample
+      tshirt = Category.find_by(name: "T-shirts").items.sample
+      shirt = Category.find_by(name: "Long-sleeved shirts").items.sample
+      pants = Category.find_by(name: "Pants").items.sample
+      coat = Category.find_by(name: "Outerwear-medium").items.sample
       return [shoes, tshirt, shirt, pants, coat]
     else
-      return []
+      shoes = Category.find_by(name: "Shoes").items.sample
+      tshirt = Category.find_by(name: "T-shirts").items.sample
+      shirt = Category.find_by(name: "Long-sleeved shirts").items.sample
+      pants = Category.find_by(name: "Pants").items.sample
+      coat = Category.find_by(name: "Outerwear-heavy").items.sample
+      return [shoes, tshirt, shirt, pants, coat]
     end
   end
 

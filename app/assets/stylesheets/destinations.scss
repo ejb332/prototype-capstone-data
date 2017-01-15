@@ -10,7 +10,7 @@
 // }
 .dest-header {
   text-align: center;
-  background-color: #2BA8DB;
+  background-color: #2ba8db;
   color: white;
 }
 
@@ -22,6 +22,15 @@
   text-decoration: none;
 }
 
-.flag {
-  align: center;
+.center {
+  margin: auto;
+  width: 10%;
+}
+
+.no-link-style {
+  text-decoration: none;
+}
+
+hr {
+  color: #ccc;
 }

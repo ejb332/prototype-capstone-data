@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find_by(id: params[:id])
-    item.destroy
+    @item.destroy
     flash[:success] = "Item removed from closet"
     redirect_to "/items"
   end
