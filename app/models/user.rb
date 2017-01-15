@@ -15,9 +15,15 @@ class User < ApplicationRecord
       pants = items.sample
       return [shoes, tshirt, pants]
     elsif input_temp < 55 && input_temp >= 40
-      return items
+      shoes = items.sample
+      tshirt = items.sample
+      shirt = items.sample
+      pants = items.sample
+      coat = items.sample
+      return [shoes, tshirt, shirt, pants, coat]
     else
       return items
     end
   end
+
 end

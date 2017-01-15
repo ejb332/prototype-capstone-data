@@ -5,8 +5,9 @@
   <% @destinations.each do |destination| %>
     <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
     <h3><%= destination.country%> - <%= destination.zip %></h3>
-    <h4><%= destination.date %></h4>
-    <h4><%= destination.destination_hi%> / <%= destination.destination_lo %></h4>
+    <h4><%= destination.date_pretty_start %></h4>
+    <h4>-</h4>
+    <h4><%= destination.date_pretty_end %></h4>
     <form action="/destinations/<%= destination.id %>/edit" method="get">
       <button class="btn btn-info">Edit destination</button>
     </form>

@@ -5,4 +5,8 @@ class Item < ApplicationRecord
   has_many :destination_items
   has_many :destinations, through: :destination_items
 
+
+  def assign_category
+    
+  end
 end

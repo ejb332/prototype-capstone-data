@@ -16,8 +16,9 @@ class DestinationsController < ApplicationController
       city: params["city"],
       state: params["state"],
       zip: params["zip"],
-      date: params["date"],
-      user_id: current_user
+      start_date: params["start_date"],
+      end_date: params["end_date"],
+      user_id: current_user.id
     )
     if @destination.save
       flash[:success] = "Destination added to Itinerary"
@@ -29,9 +30,8 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    @place = Destination.find_by(id: params[:id])
-    @destination = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/almanac/q/#{@place.state}/#{@place.city}.json").body
-    @date = Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/hourly/q/#{@place.state}/#{@place.city}.json").body
+    @destination = Destination.find_by(id: params[:id])
+    @weather = @destination.weather_data
     render "show.html.erb"
   end
 
@@ -45,7 +45,8 @@ class DestinationsController < ApplicationController
     destination.city = params[:city]
     destination.state = params[:state]
     destination.zip = params[:zip]
-    destination.date = params[:date]
+    destination.start_date = params[:start_date]
+    destination.end_date = params[:end_date]
     if destination.save
       flash[:success] = "Destination Updated and Added to Itinerary"
       redirect_to "/destinations"
