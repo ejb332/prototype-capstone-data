@@ -31,18 +31,15 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find_by(id: params[:id])
+    # puts "*" * 50
     @weather = @destination.weather_data
-    @all_weathers = {}
-    current_date = @destination.start_date
-    while current_date <= @destination.end_date
-      @all_weathers[current_date.strftime("%A %B %e %Y")] = rand(34..100)
-      current_date += 1.day
-    end
-    # <% current_date = start_date %>
-    # <% while current_date <= end_date %>
-    #   <%= current_date %>
-    #   <% current_date += 1.day %>
-    # <% end %>
+    # puts "*" * 50
+    # @all_weathers = {}
+    # current_date = @destination.start_date
+    # while current_date <= @destination.end_date
+    #   @all_weathers[current_date.strftime("%A %B %e %Y")] =
+    #   current_date += 1.day
+    # end
     render "show.html.erb"
   end
 

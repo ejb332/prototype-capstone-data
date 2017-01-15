@@ -1,19 +1,16 @@
 <div class="location">
   <h1><%= @destination.city %>, <%= @destination.state %></h1>
-  <h3>
-    <% @all_weathers.each do |date, temp| %>
-      <p><%= date %>: <%= temp %></p>
-    <% end %>
-  </h3>
   <% if @destination.ten_plus? %>
     <h2><%= @destination.date_pretty_start%></h2>
     <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_high"]["avg"]["C"] %>&#8451</h3>
+    <h3>Normal low: <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_low"]["avg"]["C"] %>&#8451</h3>
     <h3>On this date, conditions have historically been listed as <b><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></b> with a <b><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</b> chance of precipitation.</h3>
+    <% @weather_hi = @weather["trip"]["temp_high"]["avg"]["F"] %>
   <% else %>
     <h2><%= @destination.date_pretty%></h2>
     <h3>High: <%= @weather["forecast"]["simpleforecast"]["forecastday"]["high"]["fahrenheit"] %>&#8457 / <%= @weather["forecast"]["simpleforecast"]["forecastday"]["high"]["fahrenheit"] %>&#8451</h3>
     <h3>Low: <%= @weather["forecast"]["simpleforecast"]["forecastday"]["low"]["fahrenheit"] %>&#8457 / <%= @weather["forecast"]["simpleforecast"]["forecastday"]["low"]["fahrenheit"] %>&#8451</h3>
-    <% weather_hi = @weather["forecast"]["simpleforecast"]["forecastday"]["high"]["fahrenheit"] %>
+    <% @weather_hi = @weather["forecast"]["simpleforecast"]["forecastday"]["high"]["fahrenheit"] %>
   <% end %>
 
   <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=400x400">
@@ -24,7 +21,7 @@
     <h1>Suitcase Recommends</h1>
   </div>
   <div>
-    <% @current_user.select_wardrobe(weather_hi.to_i).each do |item| %>
+    <% @current_user.select_wardrobe(@weather_hi.to_i).each do |item| %>
       <h4><%= item.name %></h4>
     <% end %>
   </div>

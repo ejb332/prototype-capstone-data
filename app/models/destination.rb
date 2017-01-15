@@ -8,6 +8,7 @@ class Destination < ApplicationRecord
   end
 
   def almanac_weather_data
+    puts "http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/planner_#{date_url_start}#{date_url_end}/q/#{state}/#{city}.json"
     Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/planner_#{date_url_start}#{date_url_end}/q/#{state}/#{city}.json").body
   end
 
@@ -32,10 +33,10 @@ class Destination < ApplicationRecord
   end
 
   def date_url_start
-    start_date.strftime("%m %e")
+    start_date.strftime("%m%e")
   end
 
   def date_url_end
-    end_date.strftime("%m %e")
+    end_date.strftime("%m%e")
   end
 end
