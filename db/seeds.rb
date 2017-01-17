@@ -49,12 +49,12 @@ names = ["test1", "test2", "test3", "Eric"]
 #   category.save
 # end
 
-# 12.times do
-#   item_category = ItemCategory.new(
-#     item_id: rand(12),
-#     category_id: rand(12)
-#   )
-#   item_category.save
-# end
+30.times do
+  item_category = ItemCategory.new(
+    item_id: rand(14...100),
+    category_id: rand(14)
+  )
+  item_category.save
+end
 
 puts "Done!"
