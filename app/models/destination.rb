@@ -3,6 +3,11 @@ class Destination < ApplicationRecord
   has_many :destination_items
   has_many :items, through: :destination_items
 
+  validates :country, length: { maximum: 2 }
+  validates :state, length: { maximum: 2 }
+  validates :zip, numericality: { only_integer: true }
+
+
   def ten_plus?
     start_date > Time.now + 10.days
   end

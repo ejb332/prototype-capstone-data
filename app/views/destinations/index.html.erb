@@ -8,9 +8,7 @@
     <div class="center">
       <img src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
     </div>
-    <h4><%= destination.date_pretty_start %></h4>
-    <h4>-</h4>
-    <h4><%= destination.date_pretty_end %></h4>
+    <h4><%= destination.date_pretty_start %> - <%= destination.date_pretty_end %></h4>
     <form action="/destinations/<%= destination.id %>/edit" method="get">
       <button class="btn btn-info">Edit destination</button>
     </form>

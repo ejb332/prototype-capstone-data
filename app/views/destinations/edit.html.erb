@@ -13,6 +13,10 @@
     <%= text_field_tag :zip, @destination.zip, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= label_tag :country %>
+    <%= text_field_tag :country, @destination.country, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= label_tag :start_date %>
     <%= text_field_tag :start_date, @destination.date_pretty_start, class: 'form-control' %>
   </div>

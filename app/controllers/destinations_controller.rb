@@ -13,10 +13,10 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new(
+      country: params["country"],
       city: params["city"],
       state: params["state"],
       zip: params["zip"],
-      country: "US",
       start_date: params["start_date"],
       end_date: params["end_date"],
       user_id: current_user.id
@@ -51,6 +51,7 @@ class DestinationsController < ApplicationController
 
   def update
     destination = Destination.find_by(id: params[:id])
+    destination.country = params[:country]
     destination.city = params[:city]
     destination.state = params[:state]
     destination.zip = params[:zip]

@@ -7,9 +7,9 @@
   <div>
     <%= label_tag :categories %>
     <% Category.all.each do |category| %>
-      <div class="checkbox">
+      <div class="radio">
         <label>
-          <input type="checkbox" name="category_ids[]" value="<%= category.id %>">
+          <input type="radio" name="category_ids[]" value="<%= category.id %>">
           <%= category.name %>
         </label>
       </div>

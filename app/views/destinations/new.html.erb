@@ -1,6 +1,10 @@
 <h1>Add Destination To Itinerary</h1>
 <%= form_tag "/destinations", method: :post do %>
   <div class="form-group">
+    <%= label_tag :country %>
+    <%= text_field_tag :country, "", class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= label_tag :city %>
     <%= text_field_tag :city, "", class: 'form-control' %>
   </div>

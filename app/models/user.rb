@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :destinations
 
+  validates :email, :uniqueness => true
+
   def select_wardrobe(input_temp)
     if input_temp >= 75
       sandals = Category.find_by(name: "Sandals").items.sample

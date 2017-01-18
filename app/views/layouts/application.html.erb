@@ -118,7 +118,7 @@
                 <li><a href="home-offers.html">Home - Special Offers</a></li>
               </ul> -->
             </li>
-            <li class="has-submenu"><a href="shop-filters-left-3cols.html">Shop<i class="fa fa-chevron-down"></i></a>
+           <!--  <li class="has-submenu"><a href="shop-filters-left-3cols.html">Shop<i class="fa fa-chevron-down"></i></a> -->
               <!-- <ul class="submenu">
                 <li><a href="shop-filters-left-3cols.html">Shop - Filters Left 3 Cols</a></li>
                 <li><a href="shop-filters-left-2cols.html">Shop - Filters Left 2 Cols</a></li>
@@ -133,14 +133,14 @@
                 <li><a href="wishlist.html">Wishlist</a></li>
               </ul> -->
             </li>
-            <li class="has-submenu"><a href="blog-sidebar-right.html">Blog<i class="fa fa-chevron-down"></i></a>
+            <li class="has-submenu"><a href="#">Blog<i class="fa fa-chevron-down"></i></a>
 <!--               <ul class="submenu">
                 <li><a href="blog-sidebar-left.html">Blog - Sidebar Left</a></li>
                 <li><a href="blog-sidebar-right.html">Blog - Sidebar Right</a></li>
                 <li><a href="blog-single.html">Blog - Single Post</a></li>
               </ul> -->
             </li>
-            <li class="has-submenu"><a href="#">Pages<span class="label"></span><i class="fa fa-chevron-down"></i></a>
+           <!--  <li class="has-submenu"><a href="#">Pages<span class="label"></span><i class="fa fa-chevron-down"></i></a> -->
              <!--  <ul class="submenu">
                 <li><a href="register.html">Login / Registration</a></li>
                 <li><a href="account-personal-info.html">Account: Personal Info<span class="label">NEW</span></a></li>
@@ -156,7 +156,7 @@
                 <li><a href="cs-page.html">Components &amp; Styles</a></li>
               </ul> -->
             </li>
-            <li class="hide-sm"><a href="support.html">Support</a></li>
+            <li class="hide-sm"><a href="#">Support</a></li>
           </ul>
           <ul class="catalog">
             <li class="has-submenu"><a href="/destinations">Destinations<i class="fa fa-chevron-down"></i></a>
@@ -253,6 +253,11 @@
     </header><!--Header Close-->
 
     <div class="page-content">
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+          <%= value %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
 
@@ -277,9 +282,9 @@
           <div class="col-lg-4 col-md-4 col-sm-4">
             <h2>Coming Soon</h2>
             <ul class="list-unstyled">
-              <li>27 Jan <a href="#">Suitcase Chicago Launch</a></li>
+              <li>27 Jan <a href="https://www.eventbrite.com/e/actualize-chicago-january-showcase-lunch-hour-registration-31064326236" target="_blank">Suitcase Chicago Launch</a></li>
               <li>29 Jan <a href="#">Suitcase US Launch</a></li>
-              <li>16 Apr <a href="#">Mall Tour, '17</a></li>
+              <li>16 Apr <a href="http://gph.is/29aXG3b">Mall Tour, '17</a></li>
             </ul>
           </div>
           <div class="contacts col-lg-3 col-md-3 col-sm-3">
