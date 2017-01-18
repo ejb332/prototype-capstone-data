@@ -3,10 +3,14 @@
     <div class="cat-name">
       <h1><%= category.name %></h1>
     </div>
-    <% category.items.where(user_id: current_user.id).each do |item| %>
-      <span><h4><%= item.name %></h4></span>
-        <div class="del-btn">
-        <button class="btn btn-sm btn-danger no-link-style"><%= link_to "Delete", "/items/#{item.id}", method: :delete %></button>
+        <% category.items.where(user_id: current_user.id).each do |item| %>
+        <div class="container">
+          <div class="flex">
+          <h4><%= item.name %></h4>
+            <div class="del-btn">
+            <button class="btn btn-sm btn-danger"><%= link_to "Delete", "/items/#{item.id}", method: :delete %></button>
+            </div>
+          </div>
         </div>
     <% end %>
   <% end %>

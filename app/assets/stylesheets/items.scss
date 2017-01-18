@@ -16,6 +16,15 @@ hr {
   text-align: center;
 }
 
-.del-btn {
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.del-btn {
+  margin-left: auto;
+}
+
+a:link {
+  text-decoration: none;
 }

@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'unirest'
 gem 'dotenv-rails'
+gem 'clarifai_ruby'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'
