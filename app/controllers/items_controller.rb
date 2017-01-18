@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = current_user.items
+    @categories = Category.order(:name)
     render "index.html.erb"
   end
 

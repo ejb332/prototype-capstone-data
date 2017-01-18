@@ -1,4 +1,13 @@
 <div>
+  <% @categories.each do |category| %>
+    <h1><%= category.name %></h1>
+    <% category.items.where(user_id: current_user.id).each do |item| %>
+      <h4><%= item.name %></h4>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
   <% @items.each do |item| %>
     <h1><%= item.name %></h1>
     <div>
