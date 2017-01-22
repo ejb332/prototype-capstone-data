@@ -49,6 +49,12 @@ class Destination < ApplicationRecord
     ((end_date - start_date)/60/60/24).to_i
   end
 
+  def set_background
+    if @weather_hi >= 75 && chance
+      return "location-warm"
+    elsif @weather_hi 
+    end
+  end
   # def country_flag
   #   Unirest.get("http://www.geognos.com/api/en/countries/flag/#{country}.png").body
   # end

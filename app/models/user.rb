@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :email, :uniqueness => true
 
-  def select_wardrobe(input_temp, date_total)
+  def select_wardrobe(input_temp, date_total, precip_chance)
     results = []
     date_total.times do
       if input_temp >= 75
@@ -13,12 +13,25 @@ class User < ApplicationRecord
         results << Category.find_by(name: "T-Shirts").items.sample
         results << Category.find_by(name: "Shorts").items.sample
         results << Category.find_by(name: "Accessories").items.sample
+      elsif input_temp >= 75 && precip_chance >= 50
+        results << Category.find_by(name: "Sandals").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Shorts").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+        results << Category.find_by(name: "Raingear").items.sample
       elsif input_temp < 75 && input_temp >= 55
         results << Category.find_by(name: "Shoes").items.sample
         results << Category.find_by(name: "T-Shirts").items.sample
         results << Category.find_by(name: "Pants").items.sample
         results << Category.find_by(name: "Coats").items.sample
         results << Category.find_by(name: "Accessories").items.sample
+      elsif input_temp < 75 && input_temp >= 55 && precip_chance >= 50
+        results << Category.find_by(name: "Shoes").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Pants").items.sample
+        results << Category.find_by(name: "Coats").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+        results << Category.find_by(name: "Raingear").items.sample
       elsif input_temp < 55 && input_temp >= 40
         results << Category.find_by(name: "Shoes").items.sample
         results << Category.find_by(name: "T-Shirts").items.sample
@@ -26,6 +39,14 @@ class User < ApplicationRecord
         results << Category.find_by(name: "Pants").items.sample
         results << Category.find_by(name: "Coats").items.sample
         results << Category.find_by(name: "Accessories").items.sample
+      elsif input_temp < 55 && input_temp >= 40 && precip_chance >= 50
+        results << Category.find_by(name: "Shoes").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Shirts").items.sample
+        results << Category.find_by(name: "Pants").items.sample
+        results << Category.find_by(name: "Coats").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+        results << Category.find_by(name: "Raingear").items.sample
       else
         results << Category.find_by(name: "Shoes").items.sample
         results << Category.find_by(name: "T-Shirts").items.sample

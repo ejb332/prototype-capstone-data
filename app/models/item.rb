@@ -99,7 +99,7 @@ class Item < ApplicationRecord
     elsif name == "Red solid colored t-shirt"
       return "http://www.clipartbest.com/cliparts/7ia/oB9/7iaoB9nxT.jpeg"
     elsif name == "Black t-shirt"
-      return "http://pixel.nymag.com/imgs/daily/intelligencer/2016/10/13/black-t-shirt/13-black-tshirt-jcrew.w710.h473.2x.jpg"
+      return "http://www.clipartbest.com/cliparts/RiA/6bx/RiA6bx6xT.jpeg"
     elsif name == "Red t-shirt"
       return "http://target.scene7.com/is/image/Target/14390025_Alt02?wid=450&hei=450&fmt=pjpeg"
     elsif name == "Gray t-shirt"

@@ -1,7 +1,7 @@
 <div class="dest-header">
   <h1><%= @destination.city %>, <%= @destination.state %></h1>
 </div>
-  <div class="location">
+  <div class="<%= @destination.set_background %>">
   <% if @destination.ten_plus? %>
     <h2>Arrive: <%= @destination.date_pretty_start%></h2>
     <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_high"]["avg"]["C"] %>&#8451</h3>
@@ -30,8 +30,8 @@
   <div>
     <h1>Suitcase Recommends</h1>
   </div>
-  <div>
-    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days).each do |item| %>
+  <div class="">
+    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"].to_i).each do |item| %>
       <h4><%= item.name %></h4>
       <img class="destination-items" src="<%= item.images %>">
     <% end %>

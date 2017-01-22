@@ -1,14 +1,3 @@
-// Place all the styles related to the Destinations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-// button {
-//   background-color: #2F343B;
-//   border: none;
-//   color: white;
-//   padding: 5px;
-//   margin: 5px;
-// }
-
 .dest-header {
   text-align: center;
   background-color: #2ba8db;
@@ -17,7 +6,7 @@
   margin: auto;
 }
 
-.container {
+.container-dest {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -48,8 +37,16 @@ hr {
   text-decoration: bold;
 }
 
-.location {
+.location-warm {
   text-align: center;
+  background: #fff url(http://xomark.com/wp-content/uploads//2015/10/Beach-Scene-2-with-chairs-and-Umbrella.png) no-repeat fixed center;
+  color: #fff;
+}
+
+.location-cold-rainy {
+  text-align: center;
+  background: #fff url(http://www.cgarchitect.com/content/portfolioitems/2013/03/74013/Vancouver-rainy-scene-final_large.jpg);
+  color: #fff;
 }
 
 .map {
@@ -58,4 +55,9 @@ hr {
 
 .recommendations {
   text-align: center;
+  background: #fff url("/img/cheap_diagonal_fabric.png");
+}
+
+.recommendations h1 {
+  color: #BDA970;
 }
