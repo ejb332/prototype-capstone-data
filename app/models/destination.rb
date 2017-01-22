@@ -65,11 +65,19 @@ class Destination < ApplicationRecord
     p @current_precip
     puts "*" * 50
     if @current_temp >= 75
-      return "location-warm"
+      return "location-hot"
+    elsif @current_temp >= 75 && @current_precip >= 50
+      return "location-hot-rainy"
     elsif @current_temp < 75 && @current_temp >= 55
-      return "location-cold-rainy"
+      return "location-warm"
+    elsif @current_temp < 75 && @current_temp >= 55 && @current_precip >= 50
+      return "location-warm-rainy"
+    elsif @current_temp < 55 && @current_temp >= 40
+      return "location-cool"
+    elsif @current_temp < 55 && @current_temp >= 40 && @current_precip >= 50
+      return "location-cool-rainy"
     else
-      return "location-placeholder"
+      return "location-cold"
     end
   end
   # def country_flag
