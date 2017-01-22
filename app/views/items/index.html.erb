@@ -1,14 +1,19 @@
-<div class="container-dest">
-<div class="spacer"></div>
+<div class="container cs-page">
 <% @categories.each do |category| %>
-  <div class="cat-name">
-  <h1><%= category.name %></h1>
-  </div>
+  <!-- <div class="cat-name"> -->
+  <!-- <h1><%#= category.name %></h1> -->
+  <!-- </div> -->
+  <h3 class="cs-heading"><%= category.name %></h3>
+  <div class="row">
     <% category.items.where(user_id: current_user.id).each do |item| %>
     <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-    <a href="items/<%= item.id %>/edit">
-    <img class="index-sized" src="<%= item.images %>" alt="<%= item.name %>"><p><%= item.name %></p></a>
+      <a href="items/<%= item.id %>/edit">
+        <img class="index-sized" src="<%= item.images %>" alt="<%= item.name %>">
+        <p><%= item.name %></p>
+      </a>
     </div>
   <% end %>
+  </div>
+
 <% end %>
 </div>

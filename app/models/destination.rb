@@ -23,9 +23,15 @@ class Destination < ApplicationRecord
 
   def weather_data
     if ten_plus?
-      almanac_weather_data
+      data = almanac_weather_data
+      @current_temp = almanac_weather_data["trip"]["temp_high"]["avg"]["F"].to_i
+      @current_precip = almanac_weather_data["trip"]["chance_of"]["chanceofprecip"]["percentage"].to_i
+      data
     else
-      recent_weather_data
+      data = recent_weather_data
+      @current_temp = recent_weather_data["forecast"]["simpleforecast"]["forecastday"][0]["high"]["fahrenheit"].to_i
+      @current_precip = recent_weather_data["forecast"]["simpleforecast"]["forecastday"][0]["pop"].to_i
+      data
     end
   end
 
@@ -50,9 +56,20 @@ class Destination < ApplicationRecord
   end
 
   def set_background
-    if @weather_hi >= 75 && chance
+    # if @weather_hi >= 75 && chance
+    #   return "location-warm"
+    # elsif @weather_hi
+    # end
+    puts "*" * 50
+    p @current_temp
+    p @current_precip
+    puts "*" * 50
+    if @current_temp >= 75
       return "location-warm"
-    elsif @weather_hi 
+    elsif @current_temp < 75 && @current_temp >= 55
+      return "location-cold-rainy"
+    else
+      return "location-placeholder"
     end
   end
   # def country_flag

@@ -45,7 +45,13 @@ hr {
 
 .location-cold-rainy {
   text-align: center;
-  background: #fff url(http://www.cgarchitect.com/content/portfolioitems/2013/03/74013/Vancouver-rainy-scene-final_large.jpg);
+  background: #fff url(http://www.cgarchitect.com/content/portfolioitems/2013/03/74013/Vancouver-rainy-scene-final_large.jpg) no-repeat fixed center;
+  color: #fff;
+}
+
+.location-placeholder {
+  text-align: center;
+  background: #fff url(http://wikitravel.org/upload/shared//7/73/Chicago_banner.jpg) no-repeat fixed center;
   color: #fff;
 }
 
@@ -60,4 +66,11 @@ hr {
 
 .recommendations h1 {
   color: #BDA970;
+}
+
+.recommended-items {
+  text-align: center;
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
 }

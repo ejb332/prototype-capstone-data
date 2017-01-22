@@ -1,7 +1,7 @@
 <div class="dest-header">
   <h1><%= @destination.city %>, <%= @destination.state %></h1>
 </div>
-  <div class="<%= @destination.set_background %>">
+<div class="<%= @destination.set_background %>">
   <% if @destination.ten_plus? %>
     <h2>Arrive: <%= @destination.date_pretty_start%></h2>
     <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_high"]["avg"]["C"] %>&#8451</h3>
@@ -20,20 +20,22 @@
       <h3>High: <%= forecastday["high"]["fahrenheit"] %>&#8457 / <%= forecastday["high"]["fahrenheit"] %>&#8451</h3>
       <h3>Low: <%= forecastday["low"]["fahrenheit"] %>&#8457 / <%= forecastday["low"]["fahrenheit"] %>&#8451</h3>
       <% @weather_hi = forecastday["high"]["fahrenheit"] %>
+      <h3>Chance of precipitation: <%= @current_precip = forecastday["pop"] %>%</h3>
     <% end %>
   <% end %>
 
   <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=400x400">
 </div>
 <hr>
+
 <div class="recommendations">
-  <div>
-    <h1>Suitcase Recommends</h1>
-  </div>
-  <div class="">
-    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"].to_i).each do |item| %>
-      <h4><%= item.name %></h4>
-      <img class="destination-items" src="<%= item.images %>">
+  <h1>Suitcase Recommends</h1>
+  <div class="row">
+    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, 50).each do |item| %>
+      <div class="col-md-2">
+        <h4><%= item.name %></h4>
+        <img class="recommended-items" src="<%= item.images %>">
+      </div>
     <% end %>
   </div>
 </div>

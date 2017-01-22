@@ -16,9 +16,7 @@
             <button class="btn btn-info">Edit destination</button>
           </form>
           <p></p>
-          <div class="btn btn-danger">
-            <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete %>
-          </div>
+            <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete, class: "btn btn-danger" %>
           <hr>
         </div>
       <% end %>
