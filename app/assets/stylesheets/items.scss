@@ -14,10 +14,6 @@ hr {
   width: 90%;
 }
 
-.container {
-  display: flex;
-}
-
 .flex-items {
 }
 
@@ -41,4 +37,15 @@ a:link {
 
 p.category {
   text-align: center;
+}
+
+img.category {
+  height: 150px;
+  width: 150px;
+}
+
+.destination-items {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
 }

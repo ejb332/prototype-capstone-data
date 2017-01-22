@@ -6,7 +6,7 @@
     <% category.items.where(user_id: current_user.id).each do |item| %>
     <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
     <a href="items/<%= item.id %>/edit">
-    <img src="<%= category.images %>" alt="<%= item.name %>"><p><%= item.name %></p></a>
+    <img src="<%= item.images %>" alt="<%= item.name %>"><p><%= item.name %></p></a>
     </div>
   <% end %>
 <% end %>
