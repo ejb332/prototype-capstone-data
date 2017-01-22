@@ -5,37 +5,36 @@ class User < ApplicationRecord
 
   validates :email, :uniqueness => true
 
-  def select_wardrobe(input_temp)
-    if input_temp >= 75
-      sandals = Category.find_by(name: "Sandals").items.sample
-      tshirt = Category.find_by(name: "T-Shirts").items.sample
-      shorts = Category.find_by(name: "Shorts").items.sample
-      accessories = Category.find_by(name: "Accessories").items.sample
-      return [sandals, tshirt, shorts, accessories]
-    elsif input_temp < 75 && input_temp >= 55
-      shoes = Category.find_by(name: "Shoes").items.sample
-      tshirt = Category.find_by(name: "T-Shirts").items.sample
-      pants = Category.find_by(name: "Pants").items.sample
-      coats = Category.find_by(name: "Coats").items.sample
-      accessories = Category.find_by(name: "Accessories").items.sample
-      return [shoes, tshirt, pants, coats, accessories]
-    elsif input_temp < 55 && input_temp >= 40
-      shoes = Category.find_by(name: "Shoes").items.sample
-      tshirt = Category.find_by(name: "T-Shirts").items.sample
-      shirt = Category.find_by(name: "Shirts").items.sample
-      pants = Category.find_by(name: "Pants").items.sample
-      coats = Category.find_by(name: "Coats").items.sample
-      accessories = Category.find_by(name: "Accessories").items.sample
-      return [shoes, tshirt, shirt, pants, coats, accessories]
-    else
-      shoes = Category.find_by(name: "Shoes").items.sample
-      tshirt = Category.find_by(name: "T-Shirts").items.sample
-      shirt = Category.find_by(name: "Shirts").items.sample
-      pants = Category.find_by(name: "Pants").items.sample
-      coats = Category.find_by(name: "Coats").items.sample
-      accessories = Category.find_by(name: "Accessories").items.sample
-      return [shoes, tshirt, shirt, pants, coat, accessories]
+  def select_wardrobe(input_temp, date_total)
+    results = []
+    date_total.times do
+      if input_temp >= 75
+        results << Category.find_by(name: "Sandals").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Shorts").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+      elsif input_temp < 75 && input_temp >= 55
+        results << Category.find_by(name: "Shoes").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Pants").items.sample
+        results << Category.find_by(name: "Coats").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+      elsif input_temp < 55 && input_temp >= 40
+        results << Category.find_by(name: "Shoes").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Shirts").items.sample
+        results << Category.find_by(name: "Pants").items.sample
+        results << Category.find_by(name: "Coats").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+      else
+        results << Category.find_by(name: "Shoes").items.sample
+        results << Category.find_by(name: "T-Shirts").items.sample
+        results << Category.find_by(name: "Shirts").items.sample
+        results << Category.find_by(name: "Pants").items.sample
+        results << Category.find_by(name: "Coats").items.sample
+        results << Category.find_by(name: "Accessories").items.sample
+      end
     end
+    return results
   end
-
 end

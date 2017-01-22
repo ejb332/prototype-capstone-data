@@ -1,23 +1,25 @@
-<div class="dest-header">
+  <div class="dest-header">
   <h1>Weather Forecast</h1>
-</div>
-<div class="destination">
-  <% @destinations.each do |destination| %>
-    <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
-    <h3><%= destination.country%> - <%= destination.zip %></h3>
-    <div class="center">
-      <img src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
-    </div>
-    <h4><%= destination.date_pretty_start %> - <%= destination.date_pretty_end %></h4>
-    <form action="/destinations/<%= destination.id %>/edit" method="get">
-      <button class="btn btn-info">Edit destination</button>
-    </form>
-    <p></p>
-    <div class="btn btn-danger">
-      <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete %>
-    </div>
-    <hr>
-  <% end %>
+  </div>
+  <div class="container">
+  <div class="destination">
+    <% @destinations.each do |destination| %>
+      <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
+      <h3><%= destination.country%> - <%= destination.zip %></h3>
+      <img class ="center" src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
+      <h4><%= destination.date_pretty_start %></h4>
+      <h4> - </h4>
+      <h4><%= destination.date_pretty_end %></h4>
+      <form action="/destinations/<%= destination.id %>/edit" method="get">
+        <button class="btn btn-info">Edit destination</button>
+      </form>
+      <p></p>
+      <div class="btn btn-danger">
+        <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
 </div>
 <form action="/destinations/new" method="get">
   <button class="btn btn-success">Add destination</button>

@@ -8,10 +8,19 @@
 //   padding: 5px;
 //   margin: 5px;
 // }
+
 .dest-header {
   text-align: center;
   background-color: #2ba8db;
   color: white;
+  width: 90%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .destination {
@@ -24,7 +33,7 @@
 
 .center {
   margin: auto;
-  width: 10%;
+  width: 50%;
 }
 
 .no-link-style {

@@ -45,6 +45,10 @@ class Destination < ApplicationRecord
     end_date.strftime("%m%e")
   end
 
+  def num_days
+    ((end_date - start_date)/60/60/24).to_i
+  end
+
   # def country_flag
   #   Unirest.get("http://www.geognos.com/api/en/countries/flag/#{country}.png").body
   # end

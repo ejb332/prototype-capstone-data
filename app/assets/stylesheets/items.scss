@@ -6,19 +6,19 @@ hr {
   color: #2ba8db;
 }
 
-.align-right {
-  float: right;
-}
-
 .cat-name {
   background-color: #2ba8db;
   color: white;
   text-align: center;
+  margin: auto;
+  width: 90%;
 }
 
-.flex {
+.container {
   display: flex;
-  flex-wrap: wrap;
+}
+
+.flex-items {
 }
 
 .del-btn {
@@ -27,4 +27,18 @@ hr {
 
 a:link {
   text-decoration: none;
+}
+
+.move-in {
+  margin-left: 400px;
+}
+
+.cat-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+}
+
+p.category {
+  text-align: center;
 }
