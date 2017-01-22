@@ -9,5 +9,8 @@
   </div>
 <% end %>
 <%= form_tag "/items", method: :get do %>
-  <%= submit_tag "Cancel", class: 'btn btn-danger' %>
+  <%= submit_tag "Cancel", class: "btn btn-warning" %>
 <% end %>
+<div class="btn btn-danger">
+  <%= link_to "Delete", "/items/#{@item.id}", method: :delete %>
+</div>
