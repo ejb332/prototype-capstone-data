@@ -5,6 +5,10 @@ class Item < ApplicationRecord
   has_many :destination_items
   has_many :destinations, through: :destination_items
 
+  def tag_array
+    tags[1..-2].gsub("\"", "").split(", ")
+  end
+
   def images
     if name == "Maroon watch"
       return "https://s-media-cache-ak0.pinimg.com/564x/3d/cc/6f/3dcc6f1f7885e2191fedbd8d02d2d1e3.jpg"

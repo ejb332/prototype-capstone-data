@@ -1,3 +1,5 @@
 <h1><%= @item.name %></h1>
 <h1>Tag names</h1>
-<%= @item.tags %>
+<% @item.tag_array.each do |tag_array| %>
+  <p><%= tag_array %></p>
+<% end %>

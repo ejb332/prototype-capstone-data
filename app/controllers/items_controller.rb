@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     response = Unirest.post("http://uploads.im/api?upload", parameters: {file: params[:image]}).body
     tag_response = ClarifaiRuby::TagRequest.new.get(response["data"]["img_url"])
-    tag_array = tag_response.tag_images.first.tags_by_words
+    tag_array_string = tag_response.tag_images.first.tags_by_words
     # puts "~" * 100
     # puts response
     # p tag_response.tag_images.first.tags_by_words
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.new(
       name: params["name"],
       user_id: current_user.id,
-      tags: tag_array
+      tags: tag_array_string
     )
     if @item.save
       params[:category_ids].each do |category_id|
