@@ -56,14 +56,10 @@ class Destination < ApplicationRecord
   end
 
   def set_background
-    # if @weather_hi >= 75 && chance
-    #   return "location-warm"
-    # elsif @weather_hi
-    # end
-    puts "*" * 50
-    p @current_temp
-    p @current_precip
-    puts "*" * 50
+    # puts "*" * 50
+    # p @current_temp
+    # p @current_precip
+    # puts "*" * 50
     if @current_temp >= 75
       return "location-hot"
     elsif @current_temp >= 75 && @current_precip >= 50

@@ -1,8 +1,12 @@
 <h1>Add Clothing Item To Inventory</h1>
-<%= form_tag "/items", method: :post do %>
+<%= form_tag "/items", method: :post, multipart: true do %>
   <div class="form-group">
     <%= label_tag :name %>
     <%= text_field_tag :name, "", class: 'form-control' %>
+  </div>
+  <div>
+    <%= label_tag :image %>
+    <%= file_field_tag :image, accept: "image/*;capture=camera" %>
   </div>
   <div>
     <%= label_tag :categories %>

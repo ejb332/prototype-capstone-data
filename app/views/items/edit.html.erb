@@ -1,16 +1,14 @@
-<h1>Edit Clothing Item In Inventory</h1>
+<h1>Edit Inventory Item</h1>
 <%= form_tag "/items/#{@item.id}", method: :patch do %>
   <div class="form-group">
     <%= label_tag :name %>
     <%= text_field_tag :name, @item.name, class: 'form-control' %>
   </div>
   <div>
-    <%= submit_tag "Update Clothing Item", class: 'btn btn-success' %>
+    <%= submit_tag "Update", class: 'btn btn-success' %>
   </div>
 <% end %>
 <%= form_tag "/items", method: :get do %>
   <%= submit_tag "Cancel", class: "btn btn-warning" %>
 <% end %>
-<div class="btn btn-danger">
-  <%= link_to "Delete", "/items/#{@item.id}", method: :delete %>
-</div>
+<%= link_to "Delete", "/items/#{@item.id}", method: :delete, class: "btn btn-danger" %>
