@@ -9,6 +9,15 @@ class Item < ApplicationRecord
     tags[1..-2].gsub("\"", "").split(", ")
   end
 
+  def get_image
+    if !img_url
+      if name.include? "skate shoes"
+        return "/img/Clothing_Icons/Icon_Sneakers.svg"
+      elsif name.include? "pants"
+        return "/img/Clothing_Icons/Icon_Slacks.svg"
+      end
+    end
+  end
   def images
     if name == "Maroon watch"
       return "https://s-media-cache-ak0.pinimg.com/564x/3d/cc/6f/3dcc6f1f7885e2191fedbd8d02d2d1e3.jpg"
