@@ -22,7 +22,8 @@ class ItemsController < ApplicationController
     @item = Item.new(
       name: params["name"],
       user_id: current_user.id,
-      tags: tag_array_string
+      tags: tag_array_string,
+      img_url: params["img_url"]
     )
     if @item.save
       params[:category_ids].each do |category_id|
@@ -52,6 +53,7 @@ class ItemsController < ApplicationController
   def update
     item = Item.find_by(id: params[:id])
     item.name = params[:name]
+    item.img_url = params[:img_url]
     if item.save
       flash[:success] = "Item updated and saved to closet"
       redirect_to "/items"
