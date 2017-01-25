@@ -39,46 +39,56 @@ hr {
 }
 
 .location-hot {
-  text-align: center;
-  background: #fff url(http://xomark.com/wp-content/uploads//2015/10/Beach-Scene-2-with-chairs-and-Umbrella.png) no-repeat fixed center;
-  color: #fff;
-  // opacity: 0.8;
+  width: 168px;
+  height: 140px;
+  margin: auto;
+  background: url("/img/weather_icons/Weather_Artboard 2.png");
 }
 
 .location-hot-rainy {
-  text-align: center;
-  background: #fff url(https://www.boatus.com/pressroom/previewImg/hiRes/1228.jpg) no-repeat fixed center;
-  color: #fff;
+  width: 168px;
+  height: 140px;
+  margin: auto;
+  background: url("/img/weather_icons/Weather_Artboard 8.png");
 }
 
 .location-warm {
-  text-align: center;
-  background: #fff url(http://img.mi9.com/landscape/5087/dream-spring-2012-the-gift-of-springtime_1920x1200_96813.jpg) no-repeat fixed center;
-  color: #fff;
+  width: 168px;
+  height: 140px;
+  margin: auto;
+  background: url("/img/weather_icons/Weather_Artboard 2.png");
 }
 
 .location-warm-rainy {
-  text-align: center;
-  background: #fff url(https://upload.wikimedia.org/wikipedia/commons/8/89/Beautiful-late-spring-rain-wildflowers_-_West_Virginia_-_ForestWander.jpg) no-repeat fixed center;
-  color: #fff;
+  width: 168px;
+  height: 140px;
+  margin: auto;
+  background: #fff url("/img/weather_icons/Weather_Artboard 12.png");
 }
 
 .location-cool {
-  text-align: center;
-  background: #fff url(https://static1.squarespace.com/static/56383952e4b0facc1283c08e/t/563e7ecde4b093f2965aecc6/1446936269842/Fall2012_tube_ssv_rt.jpg) no-repeat fixed center;
-  color: #fff;
+  width: 168px;
+  height: 140px;
+  margin: auto;
+  background: #fff url("/img/weather_icons/Weather_Artboard 6.png");
 }
 
 .location-cool-rainy {
   text-align: center;
-  background: #fff url(http://www.cgarchitect.com/content/portfolioitems/2013/03/74013/Vancouver-rainy-scene-final_large.jpg) no-repeat fixed center;
+  background: #fff url("/img/weather_icons/Weather_Artboard 7.png") no-repeat fixed center;
   color: #fff;
 }
 
 .location-cold {
-  text-align: center;
-  background: #fff url(http://a.abcnews.com/images/US/AP_RFK_Stadium_snow_hb_160125_12x5_1600.jpg) no-repeat fixed center;
-  color: #fff;
+  background: url("/img/weather_icons/Weather_Artboard 18.png");
+}
+
+.location-cold-snowy {
+  background: url("/img/weather_icons/Weather_Artboard 15.png");
+}
+
+.location-no-data {
+  background: url("img/weather_icons/Weather_Artboard 26.png");
 }
 
 .map {

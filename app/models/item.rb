@@ -19,13 +19,13 @@ class Item < ApplicationRecord
 
   def images
     if name.include? "skate shoes"
-      return "/img/clothing_icons/Icon_Sneakers.svg"
+      return "/img/clothing_icons/Icon__Sneakers.svg"
     elsif name.include? "Pants"
       return "/img/clothing_icons/Icon_Slacks.svg"
     elsif name.include? "watch"
       return "/img/noise.gif"
     elsif name.include? "windbreaker"
-      return "/img/clothing_icons/Icon_Light Jacket.svg"
+      return "/img/clothing_icons/Icon__Light Jacket.svg"
     else
       return "/img/noise.gif"
     end

@@ -5,6 +5,7 @@
 <div class="destination">
   <% if @destination.ten_plus? %>
     <h2>Arrive: <%= @destination.date_pretty_start%></h2>
+    <div class="<%= @destination.set_background %>"></div>
     <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457</h3>
     <h3>Normal low: <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h3>
     <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
