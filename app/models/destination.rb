@@ -88,6 +88,10 @@ class Destination < ApplicationRecord
   #   Unirest.get("http://www.geognos.com/api/en/countries/flag/#{country}.png").body
   # end
 
+  def set_highlight
+    return "highlight"
+  end
+
   def otd
     fun_fact = Unirest.get("http://history.muffinlabs.com/date/#{otd_date}").body
     formatted_year = fun_fact["data"]["Events"][0]["year"],

@@ -12,13 +12,17 @@
     <% @weather_hi = @weather["trip"]["temp_high"]["avg"]["F"] %>
     <h2>Depart: <%= @destination.date_pretty_end%></h2>
   <% else %>
-    <h2><%= @destination.date_pretty_start %></h2>
+    <h2>Arrive: <%= @destination.date_pretty_start %></h2>
     <% @weather["forecast"]["simpleforecast"]["forecastday"].each do |forecastday| %>
       <h2><%= forecastday["date"]["pretty"] %></h2>
-      <%= DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) %>
-      <%= @destination.start_date %>
+      <div class="<%= @destination.set_background %>"></div>
+      <% DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) %>
+      <% @destination.start_date %>
       <!-- Some logic here to change styling or otherwise highlight that certain dates are within your trip -->
-      <%= DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) >= DateTime.new(@destination.start_date.year, @destination.start_date.month, @destination.start_date.day) %>
+      <% during = DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) >= DateTime.new(@destination.start_date.year, @destination.start_date.month, @destination.start_date.day) %>
+      <% if during == true %>
+        <div class="<%= @destination.set_highlight %>"></div>
+      <% end %>
       <h3>High: <%= forecastday["high"]["fahrenheit"] %>&#8457 / <%= forecastday["high"]["fahrenheit"] %>&#8451</h3>
       <h3>Low: <%= forecastday["low"]["fahrenheit"] %>&#8457 / <%= forecastday["low"]["fahrenheit"] %>&#8451</h3>
       <% @weather_hi = forecastday["high"]["fahrenheit"] %>
