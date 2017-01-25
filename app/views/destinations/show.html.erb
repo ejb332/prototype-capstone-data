@@ -24,6 +24,7 @@
     <% end %>
   <% end %>
 
+  <%= @destination.otd %>
   <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=400x400">
 </div>
 <div class="recommendations">
@@ -32,7 +33,7 @@
     <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, 50).each do |item| %>
       <div class="col-md-2">
         <h4><%= item.name %></h4>
-        <img class="recommended-items" src="<%= item.images %>">
+        <img class="recommended-items" src="<%= item.img_decide %>">
       </div>
     <% end %>
   </div>

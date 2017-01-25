@@ -51,6 +51,10 @@ class Destination < ApplicationRecord
     end_date.strftime("%m%e")
   end
 
+  def otd_date
+    start_date.strftime("%m/%d")
+  end
+
   def num_days
     ((end_date - start_date)/60/60/24).to_i
   end
@@ -79,4 +83,11 @@ class Destination < ApplicationRecord
   # def country_flag
   #   Unirest.get("http://www.geognos.com/api/en/countries/flag/#{country}.png").body
   # end
+
+  def otd
+    fun_fact = Unirest.get("http://history.muffinlabs.com/date/#{otd_date}").body
+    formatted_year = fun_fact["data"]["Events"][0]["year"],
+    formatted_text = fun_fact["data"]["Events"][0]["text"]
+  end
+
 end
