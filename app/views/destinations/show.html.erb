@@ -1,12 +1,13 @@
 <div class="dest-header">
   <h1><%= @destination.city %>, <%= @destination.state %></h1>
 </div>
-<div class="<%= @destination.set_background %>">
+</div>
+<div class="destination">
   <% if @destination.ten_plus? %>
     <h2>Arrive: <%= @destination.date_pretty_start%></h2>
-    <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_high"]["avg"]["C"] %>&#8451</h3>
-    <h3>Normal low: <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457 / <%= @weather["trip"]["temp_low"]["avg"]["C"] %>&#8451</h3>
-    <h3>On this date, conditions have historically been listed as <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation.</h3>
+    <h3>Normal high: <%= @weather["trip"]["temp_high"]["avg"]["F"] %>&#8457</h3>
+    <h3>Normal low: <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h3>
+    <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
     <% @weather_hi = @weather["trip"]["temp_high"]["avg"]["F"] %>
     <h2>Depart: <%= @destination.date_pretty_end%></h2>
   <% else %>
@@ -24,8 +25,11 @@
     <% end %>
   <% end %>
 
-  <%= @destination.otd %>
   <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=400x400">
+
+  <h4>On this date in history</h4>
+  <h5><%= @destination.otd %></</h5>
+
 </div>
 <div class="recommendations">
   <h1>Suitcase Recommends</h1>
