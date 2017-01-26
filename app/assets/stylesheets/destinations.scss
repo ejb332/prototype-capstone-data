@@ -102,10 +102,12 @@ hr {
   text-align: center;
   width: 90%;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .recommendations h1 {
-  color: #2BA8DB;
+  color: #AF710D;
 }
 
 .recommended-items {
@@ -120,17 +122,18 @@ hr {
 }
 
 .city {
-  padding-top: 10px;
-  font-size: 2em;
 }
 
 .fact {
   text-align: center;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
 }
 
 .forecast {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .trip-header {
@@ -145,9 +148,13 @@ hr {
 .itinerary {
   text-align: center;
   border-left: 1px #7D4510 solid;
+  font-family: 'Roboto', sans-serif;
 }
 
 .weather {
   margin: 0 auto;
+}
 
+.dates {
+  margin-top: 20px;
 }
