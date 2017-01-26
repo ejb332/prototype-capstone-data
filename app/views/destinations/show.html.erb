@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 <div class="dest-header">
   <div class="row fact">
     <div class="col-md-6 city">
@@ -10,13 +11,26 @@
     </div>
   </div>
 </div>
-<div class="destination col-lg-6 col-md-6 col-sm-6" style="min-height: 200vh">
+
+<hr>
+
+
+
+<div class="row">
+
+
+<div class="col-md-6 forecast">
   <h2>Weather Forecast</h2>
   <% if @destination.ten_plus? %>
-    <h3><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h3>
+    <h1 style="font-size:5em"><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h1>
+    <div class="row weather">
+      <div class="col-md-4">
         <div class="<%= @destination.set_background %>"></div>
-    <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
-    <% @weather_hi = @weather["trip"]["temp_high"]["avg"]["F"] %>
+      </div>
+      <div class="col-md-4">
+        <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
+      </div>
+    </div>
   <% else %>
     <% @weather["forecast"]["simpleforecast"]["forecastday"].each do |forecastday| %>
       <h2><%= forecastday["date"]["pretty"] %></h2>
@@ -34,9 +48,26 @@
       <h3>Chance of precipitation: <%= @current_precip = forecastday["pop"] %>%</h3>
     <% end %>
   <% end %>
-  <hr>
+</div>
 
-  <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=420x420">
+
+
+<div class="itinerary col-md-6">
+  <h2>Your Itinerary</h2>
+  <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @destination.city.split(' ').join('+') %>,<%= @destination.state %>&zoom=12&size=460x320">
+  <h4>11:30am: Check into Airbnb</h4>
+  <h4>3:00pm: Walk around Arts District</h4>
+  <h4>7:45pm: Dinner</h4>
+
+</div>
+
+
+
+
+
+<hr>
+
+
   <div class="row">
     <div class="col-md-4">
       <img src="/img/weather_icons/Weather_Artboard 26.png">
@@ -46,14 +77,21 @@
       <h5>On this date in <%= @destination.otd[0] %>, <%= @destination.otd[1] %></h5>
     </div>
   </div>
+
+
+
+
 </div>
+
+<hr>
+
 <div class="recommendations">
   <h1>Suitcase Recommends</h1>
   <div class="row">
     <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, 50).each do |item| %>
-      <div class="col-md-2">
-        <h4 style="min-height: 2em"><%= item.name %></h4>
+      <div class="col-md-3">
         <img class="recommended-items" src="<%= item.img_decide %>">
+        <h4 style="min-height: 2em"><%= item.name %></h4>
       </div>
     <% end %>
   </div>

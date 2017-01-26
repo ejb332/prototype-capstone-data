@@ -2,7 +2,7 @@
   font-family: 'Roboto', sans-serif;
   width: 90%;
   height: 100px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -32,7 +32,9 @@
 }
 
 hr {
-  color: #2ba8db;
+  background-color: #7D4510;
+  width: 85%;
+  height: 1px;
 }
 
 .fancy {
@@ -125,4 +127,27 @@ hr {
 .fact {
   text-align: center;
   margin: auto;
+}
+
+.forecast {
+  text-align: center;
+}
+
+.trip-header {
+  text-align: center
+}
+
+.flag {
+  border: 1px solid white;
+  border-radius: 10%;
+}
+
+.itinerary {
+  text-align: center;
+  border-left: 1px #7D4510 solid;
+}
+
+.weather {
+  margin: 0 auto;
+
 }
