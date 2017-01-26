@@ -1,9 +1,11 @@
 .dest-header {
-  text-align: center;
-  background-color: #2ba8db;
-  color: white;
+  font-family: 'Roboto', sans-serif;
   width: 90%;
-  margin: auto;
+  height: 100px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .container-dest {
@@ -14,7 +16,6 @@
 
 .destination {
   text-align: center;
-  background: url("crossword.png");
 }
 
 .destination a:hover {
@@ -97,6 +98,8 @@ hr {
 
 .recommendations {
   text-align: center;
+  width: 90%;
+  margin: auto;
 }
 
 .recommendations h1 {
@@ -105,11 +108,21 @@ hr {
 
 .recommended-items {
   text-align: center;
-  max-height: 200px;
-  max-width: 200px;
+  height: 150px;
+  width: 150px;
   margin: auto;
 }
 
 .highlight {
   color: #FB4C2F;
+}
+
+.city {
+  padding-top: 10px;
+  font-size: 2em;
+}
+
+.fact {
+  text-align: center;
+  margin: auto;
 }

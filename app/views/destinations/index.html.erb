@@ -1,26 +1,26 @@
-  <div class="dest-header">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="trip-header cs-page cs-heading">
   <h1>Trip Destinations</h1>
+</div>
+<div class="container">
+<div class="destination">
+  <div class="row">
+    <% @destinations.each do |destination| %>
+      <div class="col-md-3">
+      <img class ="center" src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
+      <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
+      <h3><%= destination.country%> - <%= destination.zip %></h3>
+      <h4><%= destination.date_pretty_start %></h4>
+      <h4> - </h4>
+      <h4><%= destination.date_pretty_end %></h4>
+      <form action="/destinations/<%= destination.id %>/edit" method="get">
+        <button class="btn btn-info">Edit</button>
+      </form>
+        <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete, class: "btn btn-danger" %>
+      <hr>
+      </div>
+    <% end %>
   </div>
-  <div class="container">
-  <div class="destination">
-    <div class="row">
-      <% @destinations.each do |destination| %>
-        <div class="col-md-3">
-          <h2><a href="/destinations/<%= destination.id %>"><%= destination.city %>, <%= destination.state %></a></h2>
-          <h3><%= destination.country%> - <%= destination.zip %></h3>
-          <img class ="center" src="http://www.geognos.com/api/en/countries/flag/<%= destination.country %>.png">
-          <h4><%= destination.date_pretty_start %></h4>
-          <h4> - </h4>
-          <h4><%= destination.date_pretty_end %></h4>
-          <form action="/destinations/<%= destination.id %>/edit" method="get">
-            <button class="btn btn-info">Edit destination</button>
-          </form>
-          <p></p>
-            <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete, class: "btn btn-danger" %>
-          <hr>
-        </div>
-      <% end %>
-    </div>
 
   </div>
 </div>

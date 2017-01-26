@@ -51,6 +51,14 @@ class Destination < ApplicationRecord
     end_date.strftime("%m%e")
   end
 
+  def good_date
+    start_date.strftime("%m/%d/%Y")
+  end
+
+  def good_date_end
+    end_date.strftime("%m/%d/%Y")
+  end
+
   def otd_date
     start_date.strftime("%m/%d")
   end
