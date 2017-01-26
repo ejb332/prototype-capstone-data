@@ -12,9 +12,8 @@
         <h3><%= destination.country%> - <%= destination.zip %></h3>
         <h4><%= destination.good_date %> - <%= destination.good_date_end %></h4>
         <div class="row">
-          <form action="/destinations/<%= destination.id %>/edit" method="get">
-          <button class="btn btn-info">Edit</button>
-          </form> <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete, class: "btn btn-danger" %>
+          <%= link_to "Edit", "/destinations/#{destination.id}/edit", method: :get, class: "btn btn-info" %>
+          <%= link_to "Delete", "/destinations/#{destination.id}", method: :delete, class: "btn btn-danger" %>
         </div>
       <hr>
       </div>

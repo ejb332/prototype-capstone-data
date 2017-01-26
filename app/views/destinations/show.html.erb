@@ -21,11 +21,11 @@
   <h2>Weather Forecast</h2>
   <% if @destination.ten_plus? %>
     <h1 style="font-size:5em"><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h1>
-    <div class="row weather">
-      <div class="col-md-4">
+    <div class="row">
+      <div class="weather">
         <div class="<%= @destination.set_background %>"></div>
       </div>
-      <div class="col-md-4">
+      <div class="">
         <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
       </div>
     </div>
@@ -67,10 +67,11 @@
 
 
   <div class="row">
-    <div class="col-md-4">
-      <img src="/img/weather_icons/Weather_Artboard 26.png">
+    <div class="fact-img">
+      <img src="/img/weather_icons/Weather_Artboard 26.png" style="width: 15%;
+  margin: auto;">
     </div>
-    <div class="col-md-4">
+    <div class="fact">
       <h4>Did You Know?</h4>
       <h5>On this date in <%= @destination.otd[0] %>, <%= @destination.otd[1] %></h5>
     </div>
