@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Edit Inventory Item</h1>
 <%= form_tag "/items/#{@item.id}", method: :patch do %>
   <div class="form-group">
@@ -16,3 +17,4 @@
   <%= submit_tag "Cancel", class: "btn btn-warning" %>
 <% end %>
 <%= link_to "Delete", "/items/#{@item.id}", method: :delete, class: "btn btn-danger" %>
+</div>
