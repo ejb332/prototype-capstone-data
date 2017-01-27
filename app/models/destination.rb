@@ -5,7 +5,7 @@ class Destination < ApplicationRecord
 
   validates :country, length: { maximum: 2 }
   validates :state, length: { maximum: 2 }
-  validates :zip, numericality: { only_integer: true }
+  # validates :zip, numericality: { only_integer: true }
 
 
   def three_plus?
