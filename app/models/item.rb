@@ -56,6 +56,8 @@ class Item < ApplicationRecord
       return "/img/clothing_icons/Icon__Jewelry.svg"
     elsif name.include? "watch"
       return "/img/clothing_icons/Icon__Jewelry.svg"
+    elsif name.include? "flannel"
+      return "/img/clothing_icons/Icon__Dress Shirt.svg"
     else
       return "/img/noise.gif"
     end

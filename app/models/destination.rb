@@ -8,8 +8,8 @@ class Destination < ApplicationRecord
   validates :zip, numericality: { only_integer: true }
 
 
-  def ten_plus?
-    start_date > Time.now + 10.days
+  def three_plus?
+    start_date > Time.now + 3.days
   end
 
   def almanac_weather_data
@@ -18,19 +18,19 @@ class Destination < ApplicationRecord
   end
 
   def recent_weather_data
-    Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/forecast10day/q/#{state}/#{city}.json").body
+    Unirest.get("http://api.wunderground.com/api/#{ENV['WU_API_KEY']}/planner_#{date_url_start}#{date_url_end}/q/#{state}/#{city}.json").body
   end
 
   def weather_data
-    if ten_plus?
+    if three_plus?
       data = almanac_weather_data
       @current_temp = almanac_weather_data["trip"]["temp_high"]["avg"]["F"].to_i
       @current_precip = almanac_weather_data["trip"]["chance_of"]["chanceofprecip"]["percentage"].to_i
       data
     else
-      data = recent_weather_data
-      @current_temp = recent_weather_data["forecast"]["simpleforecast"]["forecastday"][0]["high"]["fahrenheit"].to_i
-      @current_precip = recent_weather_data["forecast"]["simpleforecast"]["forecastday"][0]["pop"].to_i
+      data = almanac_weather_data
+      @current_temp = almanac_weather_data["trip"]["temp_high"]["avg"]["F"].to_i
+      @current_precip = almanac_weather_data["trip"]["chance_of"]["chanceofprecip"]["percentage"].to_i
       data
     end
   end

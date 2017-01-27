@@ -19,7 +19,7 @@
 
 <div class="col-md-6 forecast">
   <h2>Weather Forecast</h2>
-  <% if @destination.ten_plus? %>
+  <% if @destination.three_plus? %>
     <h1 style="font-size:5em"><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h1>
     <div class="row">
       <div class="weather">
@@ -30,21 +30,15 @@
       </div>
     </div>
   <% else %>
-    <% @weather["forecast"]["simpleforecast"]["forecastday"].each do |forecastday| %>
-      <h2><%= forecastday["date"]["pretty"] %></h2>
-      <div class="<%= @destination.set_background %>"></div>
-      <% DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) %>
-      <% @destination.start_date %>
-      <!-- Some logic here to change styling or otherwise highlight that certain dates are within your trip -->
-      <% during = DateTime.new(forecastday["date"]["year"].to_i, forecastday["date"]["month"].to_i, forecastday["date"]["day"].to_i) >= DateTime.new(@destination.start_date.year, @destination.start_date.month, @destination.start_date.day) %>
-      <% if during == true %>
-        <div class="<%= @destination.set_highlight %>"></div>
-      <% end %>
-      <h3>High: <%= forecastday["high"]["fahrenheit"] %>&#8457 / <%= forecastday["high"]["fahrenheit"] %>&#8451</h3>
-      <h3>Low: <%= forecastday["low"]["fahrenheit"] %>&#8457 / <%= forecastday["low"]["fahrenheit"] %>&#8451</h3>
-      <% @weather_hi = forecastday["high"]["fahrenheit"] %>
-      <h3>Chance of precipitation: <%= @current_precip = forecastday["pop"] %>%</h3>
-    <% end %>
+    <h1 style="font-size:5em"><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h1>
+    <div class="row">
+      <div class="weather">
+        <div class="<%= @destination.set_background %>"></div>
+      </div>
+      <div class="">
+        <h3>Historically <b><u><%= @weather["trip"]["cloud_cover"]["cond"].downcase %></u></b> with a <b><u><%= @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>%</u></b> chance of precipitation</h3>
+      </div>
+    </div>
   <% end %>
 </div>
 

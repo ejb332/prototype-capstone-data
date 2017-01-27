@@ -16,6 +16,7 @@
 
 .destination {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .destination a:hover {
@@ -135,7 +136,8 @@ hr {
 }
 
 .trip-header {
-  text-align: center
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .flag {
@@ -145,8 +147,9 @@ hr {
 
 .itinerary {
   text-align: center;
-  border-left: 1px #7D4510 solid;
   font-family: 'Roboto', sans-serif;
+  border-left: 1px #7D4510 solid;
+
 }
 
 .weather {
