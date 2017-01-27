@@ -21,6 +21,8 @@
   <h2>Weather Forecast</h2>
   <% if @destination.three_plus? %>
     <h1 style="font-size:5em"><%= @weather["trip"]["temp_high"]["avg"]["F"] %> / <%= @weather["trip"]["temp_low"]["avg"]["F"] %>&#8457</h1>
+    <% @weather_hi = @weather["trip"]["temp_high"]["avg"]["F"] %>
+    <% @weather_precip = @weather["trip"]["chance_of"]["chanceofprecip"]["percentage"] %>
     <div class="row">
       <div class="weather">
         <div class="<%= @destination.set_background %>"></div>
@@ -81,7 +83,7 @@
 <div class="recommendations">
   <h1>Suitcase Recommends</h1>
   <div class="row">
-    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, 50).each do |item| %>
+    <% current_user.select_wardrobe(@weather_hi.to_i, @destination.num_days, @weather_precip.to_i).each do |item| %>
       <div class="col-md-3">
         <img class="recommended-items" src="<%= item.img_decide %>">
         <h4 style="min-height: 2em"><%= item.name %></h4>
