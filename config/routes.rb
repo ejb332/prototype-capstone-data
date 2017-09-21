@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post "/user" => "users#create"
   get "/user/:id/edit" => "users#edit"
   patch "/user/:id" => "users#update"
+  get "user/index" => "users#index"
 
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"

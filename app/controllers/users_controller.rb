@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   def new
-    form_tag '/login', method: :post do
-      label_tag :email
-      text_field_tag :email
-      label_tag :password
-      password_field_tag :password
-    submit_tag "Submit"
+    render "new.html.erb"
   end
 
   def create
@@ -24,6 +19,11 @@ class UsersController < ApplicationController
       flash[:warning] = "Invalid email or password"
       redirect_to "/signup"
     end
+  end
+
+  def index
+    @users = User.all
+    render json: @users, each_serializer: UserSerializer
   end
 
   def edit

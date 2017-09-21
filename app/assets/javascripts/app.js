@@ -1,8 +1,12 @@
 /* global angular */
 
-(function() {
-  "use strict";
+// (function() {
+//   "use strict";
 
-  angular.module("app", []);
+//   angular.module("app", []);
 
-}());
+// }());
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => :create
+
   def new
     render 'new.html.erb'
   end
@@ -10,8 +12,10 @@ class SessionsController < ApplicationController
       flash[:success] = 'Successfully logged in!'
       redirect_to '/suitcase'
     else
-      flash[:warning] = 'Invalid email or password!'
-      redirect_to '/login'
+      puts 'string of text'
+      # {:flash => {:error => 'Invalid email or password!'}}
+      render json: error_message, status: :unprocessable_entity
+      # redirect_to '/login'
     end
   end
 
@@ -19,5 +23,11 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:success] = 'Successfully logged out!'
     redirect_to '/login'
+  end
+
+  def error_message
+    {
+      message: 'invalid'
+    }
   end
 end
