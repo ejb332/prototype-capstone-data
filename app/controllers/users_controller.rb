@@ -21,11 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @users = User.all
-    render json: @users, each_serializer: UserSerializer
-  end
-
   def edit
     @user = current_user;
     @user.id = params[:id]

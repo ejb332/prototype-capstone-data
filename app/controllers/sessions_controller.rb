@@ -10,12 +10,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = 'Successfully logged in!'
-      redirect_to '/suitcase'
+      render json: user
+      # redirect_to '/suitcase'
     else
-      puts 'string of text'
-      # {:flash => {:error => 'Invalid email or password!'}}
-      render json: error_message, status: :unprocessable_entity
-      # redirect_to '/login'
+      flash[:warning] = 'Invalid username and/or password!'
+      redirect_to '/login'
     end
   end
 
