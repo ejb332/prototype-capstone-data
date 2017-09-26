@@ -1,5 +1,9 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
+  # protect_from_forgery unless: -> { request.format.json? }
+
+  # respond_to do |format|
+  #   format.json { render json: true }
+  # end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
