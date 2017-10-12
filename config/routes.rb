@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "suitcases#index"
   get "/suitcase" => "suitcases#index"
 
   get "/destinations" => "destinations#index"
