@@ -12,10 +12,9 @@ class SessionsController < ApplicationController
       flash[:success] = 'Successfully logged in!'
       redirect_to '/suitcase'
     else
-      puts 'string of text'
-      # {:flash => {:error => 'Invalid email or password!'}}
-      render json: error_message, status: :unprocessable_entity
-      # redirect_to '/login'
+      flash[:warning] = 'Invalid email or password!'
+      # render json: error_message, status: :unprocessable_entity
+      redirect_to '/login'
     end
   end
 
@@ -25,9 +24,9 @@ class SessionsController < ApplicationController
     redirect_to '/login'
   end
 
-  def error_message
-    {
-      message: 'invalid'
-    }
-  end
+  # def error_message
+  #   {
+  #     message: 'invalid'
+  #   }
+  # end
 end
